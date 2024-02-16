@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Remix Icon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet"/>
+
+    <!-- Graph link -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <style>
+        .link {
+            color: #2b16a5;
+            text-decoration: none;
+            transition: 0.3s all;
+        }
+
+        .link:hover {
+            letter-spacing: 1px;
+        }
+
+        .card-body h1 {
+            font-family: "Poppins", sans-serif;
+            font-size: 25px;
+        }
+
+        canvas {
+            display: block;
+            margin: 0 auto;
+        }
+
+        #piechart {
+            height: 600px;
+        }
+
+        #chart{
+            height: 500px;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <nav style="box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;" class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <img style="width: 40px; padding: 1px; border: 2px solid red; border-radius: 50%;" src="profile.png" alt="">
+            </form>
+          </div>
+        </div>
+    </nav>
+      
+<div style="margin-top: 50px;" class="container">
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Enable both scrolling & backdrop</button>
+
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <p>Try scrolling the rest of the page to see this option in action.</p>
+  </div>
+</div>
+    <div class="row">
+        <!-- Card 1 -->
+        <div class="col">
+            <div style="background-color: rgb(255, 241, 241); box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; border: none;" class="card">
+                <div class="card-body">
+                <h1 style="color: rgb(136, 19, 19); font-size: 20px;"><i class="ri-alarm-warning-line"></i> Tsunami at Someplace!!</h1>
+                <p style="font-size: 14px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, voluptas alias? Consequatur voluptates nulla asperiores non qui quae, architecto iusto cum, saepe, ipsa nesciunt atque corrupti odio reprehenderit provident a.</p>
+                <a class="link" href="#">Learn More <i class="ri-arrow-right-line"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col">
+            <div style="background-color: rgb(252, 252, 252); box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; border: none;" class="card">
+                <div class="card-body">
+                    <h1 style="color: rgb(14, 14, 14); font-size: 20px;"><i class="ri-user-line"></i> Total: 9100 <span style="font-size: 12px;">Users</span></h1>
+                    <canvas id="polar-chart" width="400" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Card 3 -->
+        <div class="col">
+            <div style="background-color: rgb(255, 241, 241); box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; border: none;" class="card">
+                <div class="card-body">
+                <h1 style="color: rgb(136, 19, 19); font-size: 20px;"><i class="ri-alarm-warning-line"></i> Tsunami at Someplace!!</h1>
+                <p style="font-size: 14px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, voluptas alias? Consequatur voluptates nulla asperiores non qui quae, architecto iusto cum, saepe, ipsa nesciunt atque corrupti odio reprehenderit provident a.</p>
+                <a class="link" href="#">Learn More <i class="ri-arrow-right-line"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+    <!-- Graph JS -->
+    <script>
+        const lineLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'Novermber', 'December'];
+        const lineData = {
+            labels: lineLabels,
+            datasets: [{
+                label: 'Monthly Users',
+                data: [500, 600, 400, 800, 1000, 900, 300, 700, 1200, 1500, 100, 1100], // Replace this with actual earnings data
+                borderColor: 'rgba(75, 192, 192, 1)',
+                fill: false
+            }]
+        };
+
+        const lineConfig = {
+            type: 'line',
+            data: lineData,
+        };
+
+        const lineChart = new Chart(
+            document.getElementById('line-chart'),
+            lineConfig
+        );
+    </script> -->
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const ctx = document.getElementById("polar-chart").getContext("2d");
+            const data = {
+                labels: ["Jan", "Feb", "March", "April", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                datasets: [
+                    {
+                        label: "Number of Users",
+                        data: [500, 600, 400, 800, 1000, 900, 300, 700, 1200, 1500, 100, 1100],
+                        backgroundColor: (ctx) => {
+                            const values = data.datasets[0].data;
+                            const maxUsers = Math.max(...values);
+                            return values.map(value => {
+                                const alpha = value / maxUsers;
+                                return rgba(255, ${Math.round(165 + 90 * (1 - alpha))}, 0, ${alpha});
+                            });
+                        },
+                        borderColor: [
+                            "rgba(255, 99, 132, 1)",
+                            "rgba(54, 162, 235, 1)",
+                            "rgba(255, 206, 86, 1)",
+                            "rgba(75, 192, 192, 1)",
+                            "rgba(153, 102, 255, 1)",
+                            "rgba(255, 159, 64, 1)",
+                            "rgba(255, 99, 132, 1)",
+                            "rgba(54, 162, 235, 1)",
+                            "rgba(255, 206, 86, 1)",
+                            "rgba(75, 192, 192, 1)",
+                            "rgba(153, 102, 255, 1)",
+                            "rgba(255, 159, 64, 1)",
+                        ],
+                        borderWidth: 1,
+                    },
+                ],
+            };
+
+            const config = {
+                type: "polarArea",
+                data,
+                options: {
+                    scale: {
+                        ticks: {
+                            suggestedMin: 0,
+                            suggestedMax: 1600, // Adjust the max value based on your data
+                        },
+                    },
+                },
+            };
+
+            new Chart(ctx, config);
+        });
+    </script> -->
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const ctx = document.getElementById("polar-chart").getContext("2d");
+            const data = {
+                labels: ["Jan", "Feb", "March", "April", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                datasets: [
+                    {
+                        label: "Number of Users",
+                        data: [500, 600, 400, 800, 1000, 900, 300, 700, 1200, 1500, 100, 1100],
+                        backgroundColor: (ctx) => {
+                            const values = data.datasets[0].data;
+                            const maxUsers = Math.max(...values);
+                            return values.map(value => {
+                                const alpha = value / maxUsers;
+                                return rgba(255, ${Math.round(165 + 90 * (1 - alpha))}, 0, ${alpha});
+                            });
+                        },
+                        borderColor: [
+                            "rgba(255, 99, 132, 1)",
+                            "rgba(54, 162, 235, 1)",
+                            "rgba(255, 206, 86, 1)",
+                            "rgba(75, 192, 192, 1)",
+                            "rgba(153, 102, 255, 1)",
+                            "rgba(255, 159, 64, 1)",
+                            "rgba(255, 99, 132, 1)",
+                            "rgba(54, 162, 235, 1)",
+                            "rgba(255, 206, 86, 1)",
+                            "rgba(75, 192, 192, 1)",
+                            "rgba(153, 102, 255, 1)",
+                            "rgba(255, 159, 64, 1)",
+                        ],
+                        borderWidth: 1,
+                    },
+                ],
+            };
+
+            const config = {
+                type: "polarArea",
+                data,
+                options: {
+                    scale: {
+                        ticks: {
+                            suggestedMin: 0,
+                            suggestedMax: 1600, // Adjust the max value based on your data
+                        },
+                    },
+                },
+            };
+
+            new Chart(ctx, config);
+        });
+    </script> -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+</html>
